@@ -1,0 +1,20 @@
+# Directories.
+node_modules/
+coverage/
+dist/
+.idea/
+build/
+bundle-analyzer/
+debug-logs/
+cypress/videos
+cypress/screenshots
+
+
+# Files.
+.env
+npm-debug.log
+tags
+yarn-error.log
+.tern-port
+.DS_Store
+*.pem

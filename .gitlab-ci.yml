@@ -1,0 +1,32 @@
+image: node:18
+
+cache:
+  paths:
+    - node_modules/
+
+stages:
+  - build
+
+build:
+  stage: build
+  tags:
+    - docker
+  script:
+    # Install dependencies
+    - npm ci
+
+    # First build
+    - npm run build
+    - echo "First build files:"
+    - ls -la dist/
+
+    # Second build to demonstrate hash changes
+    - npm run build
+    - echo "Second build files:"
+    - ls -la dist/
+  artifacts:
+    paths:
+      - dist/
+    expire_in: 1 week
+  variables:
+    VERSION: "1.0.0" # This matches the release in our Sentry config
